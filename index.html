@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="css/memorygame.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container header">
+    <img src="images/mariologo.png" id="logo"><br>
+    <h2 class="btn cool" id="startover" onclick="reload()">NEW GAME</h2>
+</div>
+<div class="topbar container">
+    <h2 id="wrong">?</h2>
+</div>
+
+
+<div class="container">
+    <!-- Trigger the modal with a button -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="winnerAlert" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">YOU WON!</h4>
+                    <img id="winner" src="images/winner1.gif">
+                </div>
+                <div class="modal-body">
+                    <h3 id="results"></h3>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cool" onclick="reload()" data-dismiss="modal">New
+                        Game
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="container startgame">
+    <!-- Trigger the modal with a button -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="startgame" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="images/mario.png" id="modallogo">
+                    <h1>MEMORY GAME</h1>
+                </div>
+                <div class="modal-body" id="modalbox">
+
+                    <form name="levellist">
+                        <input type="radio" class="level" id="radio1" value="rookie" name="radioclick">
+                        <label for="radio1"> Rookie</label><br>
+                        <input type="radio" class="level" id="radio2" value="intermidate" name="radioclick">
+                        <label for="radio2"> Intermidate</label><br>
+                        <input type="radio" class="level" id="radio3" value="advanced" name="radioclick">
+                        <label for="radio3"> Advanced</label><br>
+                        </form>                </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default cool" onclick="start();">
+                                START
+                            </button>
+                        </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+    <audio id="levelup" src="audio/smb_1-up.wav"></audio>
+    <audio id="winnerSound" src="audio/smb_stage_clear.wav"></audio>
+    <audio id="zeropoint" src="audio/zeropoint.wav"></audio>
+    <audio id="bgaudio" src="audio/bgaudio.mp3" loop="loop"></audio>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/memorygame.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
