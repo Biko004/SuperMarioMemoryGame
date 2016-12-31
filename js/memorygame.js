@@ -8,7 +8,7 @@ var level = "";
 var images = 6;
 var colNum = 3;
 
-
+// Pop up on load
 function windowLoad() {
     $(window).load(function () {
         $('#startgame').modal({
@@ -21,7 +21,6 @@ function windowLoad() {
 };
 
 windowLoad();
-
 
 function start() {
 
@@ -53,7 +52,7 @@ function start() {
     }
 
 }
-
+// CREATING THE BOARD according to selected level
 function createBoard() {
 
 
@@ -97,8 +96,8 @@ function createBoard() {
 
 }
 
+// Winner Announcement
 function winner() {
-    document.getElementById("winnerSound").volume = 0.2;
     document.getElementById("winnerSound").play();
 
 
@@ -113,8 +112,7 @@ function winner() {
 
 
 }
-
-
+// Displaying wrong guesses
 function score() {
     wrong.style.display = "inline-block";
     if (steps == 0) {
@@ -126,18 +124,21 @@ function score() {
 
 }
 
-// CREATING THE BOARD
+
+// Create array of images
 var faces = [];
 for (var i = 0; i <= 24; i++) {
     faces.push("./images/" + (i + 1) + ".jpg");
 }
+
+// new images array by level
 var selected = [];
 
 score();
-
+// pushing images to new array and randomize
 function randomizeImages() {
 
-
+/*  images number  by level */
     if (level == "rookie") {
         images = 6;
     }
@@ -151,8 +152,6 @@ function randomizeImages() {
         faces.push("./images/" + (i + 1) + ".jpg");
     }
 
-
-// NEW ARRAY OF 2x EACH IMAGE
 
 
 //PUSHING EACH IMAGE TWICE
@@ -176,6 +175,7 @@ function randomizeImages() {
 
 var one;
 var two;
+/*Get Card's click event*/
 function click(e) {
     if (!gamePaused && e.target.getAttribute("guessed") != "true") {
         ///change background image!
@@ -195,7 +195,7 @@ function click(e) {
 
 }
 
-
+/* Compare cards and winner announcement*/
 function control() {
 
     if (!gamePaused) {
@@ -206,7 +206,6 @@ function control() {
             one.setAttribute("guessed", "true");
             two.setAttribute("guessed", "true");
             if (trueChoice < 6) {
-                document.getElementById("levelup").volume = 0.2;
                 document.getElementById("levelup").play();
 
             }
@@ -224,7 +223,7 @@ function control() {
                 document.getElementById("zeropoint").play();
                 console.log("score is " + steps);
                 wrong.textContent = "WRONG GUESSES: " + steps;
-            }, 1000);
+            }, 500);
         }
         if (trueChoice == selected.length / 2) {
             console.log(("you won!"));
@@ -237,7 +236,7 @@ function control() {
 
 }
 
-
+/* Reload page - easy way for new game :) */
 var reload = function myFunction() {
     location.reload();
 };
